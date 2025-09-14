@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="40dp"
+    android:background="#D8FFFFFF">
+
+    <!-- Main ScrollView -->
+    <ScrollView
+        android:id="@+id/main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Status Bar -->
+            <RelativeLayout
+                android:id="@+id/status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#1E2A3A"
+                android:paddingStart="20dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp">
+
+
+                <!-- Status Icons Container -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Signal Bars -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="horizontal">
+
+
+                    </LinearLayout>
+
+                    <!-- WiFi Icon -->
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- Header Section -->
+            <RelativeLayout
+                android:id="@+id/header_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card"
+                android:paddingStart="24dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="32dp">
+
+                <!-- My Medications Title -->
+                <TextView
+                    android:id="@+id/tv_my_medications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="My Medications"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <!-- Greeting -->
+                <TextView
+                    android:id="@+id/tv_greeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_my_medications"
+                    android:layout_marginTop="32dp"
+                    android:text="Hello, Pritesh!"
+                    android:textColor="@android:color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <!-- Medications left message -->
+                <TextView
+                    android:id="@+id/tv_medications_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_greeting"
+                    android:layout_marginTop="8dp"
+                    android:text="You have 2 medications left for today."
+                    android:textColor="#B0BEC5"
+                    android:textSize="16sp" />
+
+                <!-- Progress Section -->
+                <RelativeLayout
+                    android:id="@+id/progress_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_medications_left"
+                    android:layout_marginTop="36dp">
+
+                    <!-- Progress Text -->
+                    <LinearLayout
+                        android:id="@+id/ll_progress_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_progress_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3/8"
+                            android:textColor="@android:color/white"
+                            android:textSize="32sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Medications for this week"
+                            android:textColor="#B0BEC5"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <!-- Progress Dots -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <!-- First row of dots -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_completed" />
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_completed" />
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_completed" />
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:background="@drawable/circle_incomplete" />
+
+                        </LinearLayout>
+
+                        <!-- Second row of dots -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_incomplete" />
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_incomplete" />
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_incomplete" />
+
+                            <View
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:background="@drawable/circle_incomplete" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!-- Add Button -->
+                <LinearLayout
+                    android:id="@+id/btn_add_medication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progress_section"
+                    android:layout_marginTop="36dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageButton
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/ic_add_circle"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- Schedule Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Section Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:text="Your Medication Schedule"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <!-- Paracetamol Card -->
+                <RelativeLayout
+                    android:id="@+id/card_paracetamol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/edittext"
+                    android:padding="20dp">
+
+                    <!-- Medication Info -->
+                    <LinearLayout
+                        android:id="@+id/ll_paracetamol_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paracetamol"
+                            android:textColor="@android:color/black"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="After Dinner"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Treats High Blood Pressure"
+                            android:textColor="#757575"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                    <!-- Action Buttons -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btn_paracetamol_skipped"
+                            android:layout_width="110dp"
+                            android:layout_height="44dp"
+                            android:layout_marginBottom="8dp"
+                            android:backgroundTint="@color/black"
+                            android:text="Skipped"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/btn_paracetamol_taken"
+                            android:layout_width="110dp"
+                            android:layout_height="44dp"
+                            android:backgroundTint="#6A9239"
+                            android:text="Taken"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!-- Metformin Card -->
+                <RelativeLayout
+                    android:id="@+id/card_metformin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext"
+                    android:padding="20dp">
+
+                    <!-- Medication Info -->
+                    <LinearLayout
+                        android:id="@+id/ll_metformin_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Metformin"
+                            android:textColor="@android:color/black"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="After Dinner"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Lowers blood glucose levels"
+                            android:textColor="#757575"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                    <!-- Action Buttons -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btn_metformin_skipped"
+                            android:layout_width="110dp"
+                            android:layout_height="44dp"
+                            android:layout_marginBottom="8dp"
+                            android:backgroundTint="@color/black"
+                            android:text="Skipped"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/btn_metformin_taken"
+                            android:layout_width="110dp"
+                            android:layout_height="44dp"
+                            android:backgroundTint="#6A9239"
+                            android:text="Taken"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!-- Extra space for scrolling -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/nav_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/homebtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_home"/>
+
+        </LinearLayout>
+
+        <!-- Pills -->
+        <LinearLayout
+            android:id="@+id/nav_medications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/healthtrackbtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_more"/>
+
+        </LinearLayout>
+
+        <!-- Calendar -->
+        <LinearLayout
+            android:id="@+id/nav_calendar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/videoconsult"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_medication"/>
+
+        </LinearLayout>
+
+        <!-- Analytics -->
+        <LinearLayout
+            android:id="@+id/nav_analytics"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/baymaxAI"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_ai_logo"/>
+
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout
+            android:id="@+id/nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/profileBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_profile"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
