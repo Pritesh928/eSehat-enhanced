@@ -2,60 +2,92 @@ package com.firstapp.esehat
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.random.Random
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
-class OTPActivity : AppCompatActivity() {
+class OTPActivity: AppCompatActivity() {
 
-    private var generatedOtp: String? = null  // store OTP after generation
+    private lateinit var editName: EditText
+    private lateinit var editEmail: EditText
+    private lateinit var editUsername: EditText
+    private lateinit var editPassword: EditText
+    private lateinit var saveButton: Button
+
+    private lateinit var nameUser: String
+    private lateinit var emailUser: String
+    private lateinit var usernameUser: String
+    private lateinit var passwordUser: String
+
+    private lateinit var reference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_otpactivity)
 
-        val verifyButton: Button = findViewById(R.id.verifyButton)
-        val otpText: EditText = findViewById(R.id.otpEditText)
-        val getOtpButton: Button = findViewById(R.id.getotp)
+        reference = FirebaseDatabase.getInstance().getReference("users")
 
-        // Initially disable verify button
-        verifyButton.isEnabled = false
+        editName = findViewById(R.id.editName)
+        editEmail = findViewById(R.id.editEmail)
+        editUsername = findViewById(R.id.editUsername)
+        editPassword = findViewById(R.id.editPassword)
+        saveButton = findViewById(R.id.saveButton)
 
-        // 🔹 TextWatcher for OTP field
-        otpText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+        showData()
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                val otp = s.toString()
-                verifyButton.isEnabled = otp.length == 4
-            }
-        })
-
-        // On Verify Button click
-        verifyButton.setOnClickListener {
-            val otp = otpText.text.toString()
-            if (otp == generatedOtp) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                Toast.makeText(this, "Registered Successfully!", Toast.LENGTH_LONG).show()
+        saveButton.setOnClickListener {
+            if (isNameChanged() || isPasswordChanged() || isEmailChanged()) {
+                Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Invalid OTP ❌", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "No Changes Found", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
-        // On Get OTP Button click
-        getOtpButton.setOnClickListener {
-            // generate random 4-digit OTP (1000–9999)
-            generatedOtp = Random.nextInt(1000, 9999).toString()
-            Toast.makeText(this, "Your OTP is $generatedOtp", Toast.LENGTH_LONG).show()
+    private fun isNameChanged(): Boolean {
+        return if (nameUser != editName.text.toString()) {
+            reference.child(usernameUser).child("name").setValue(editName.text.toString())
+            nameUser = editName.text.toString()
+            true
+        } else {
+            false
         }
+    }
+
+    private fun isEmailChanged(): Boolean {
+        return if (emailUser != editEmail.text.toString()) {
+            reference.child(usernameUser).child("email").setValue(editEmail.text.toString())
+            emailUser = editEmail.text.toString()
+            true
+        } else {
+            false
+        }
+    }
+
+    private fun isPasswordChanged(): Boolean {
+        return if (passwordUser != editPassword.text.toString()) {
+            reference.child(usernameUser).child("password").setValue(editPassword.text.toString())
+            passwordUser = editPassword.text.toString()
+            true
+        } else {
+            false
+        }
+    }
+
+    private fun showData() {
+        val intent: Intent = intent
+
+        nameUser = intent.getStringExtra("name").orEmpty()
+        emailUser = intent.getStringExtra("email").orEmpty()
+        usernameUser = intent.getStringExtra("username").orEmpty()
+        passwordUser = intent.getStringExtra("password").orEmpty()
+
+        editName.setText(nameUser)
+        editEmail.setText(emailUser)
+        editUsername.setText(usernameUser)
+        editPassword.setText(passwordUser)
     }
 }

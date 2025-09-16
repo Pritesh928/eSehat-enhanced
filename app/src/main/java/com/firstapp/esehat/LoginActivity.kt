@@ -2,81 +2,104 @@ package com.firstapp.esehat
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.*
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var emailEt: EditText
-    private lateinit var passwordEt: EditText
-    private lateinit var loginBtn: Button
-    private lateinit var registerBtn: Button
+    private lateinit var loginUsername: EditText
+    private lateinit var loginPassword: EditText
+    private lateinit var loginButton: Button
+    private lateinit var signupRedirectText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        // Initialize views
-        emailEt = findViewById(R.id.emailEditText)
-        passwordEt = findViewById(R.id.passwordEditText)
-        loginBtn = findViewById(R.id.btnLogin)
-        registerBtn = findViewById(R.id.btnRegister)
+        loginUsername = findViewById(R.id.login_username)
+        loginPassword = findViewById(R.id.login_password)
+        loginButton = findViewById(R.id.login_button)
+        signupRedirectText = findViewById(R.id.signupRedirectText)
 
-        // Initially disable login button
-        loginBtn.isEnabled = false
-
-        // One TextWatcher that listens to both fields
-        val watcher = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                val email = emailEt.text.toString().trim()
-                val pass = passwordEt.text.toString()
-
-                val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-                val isPassValid = pass.length >= 6
-
-                // Set errors if invalid
-                if (email.isNotEmpty() && !isEmailValid) {
-                    emailEt.error = "Invalid email format"
-                } else {
-                    emailEt.error = null
-                }
-
-                if (pass.isNotEmpty() && !isPassValid) {
-                    passwordEt.error = "Password must be ≥ 6 chars"
-                } else {
-                    passwordEt.error = null
-                }
-
-                // Enable login button only when both valid
-                loginBtn.isEnabled = isEmailValid && isPassValid
+        loginButton.setOnClickListener {
+            if (!validateUsername() or !validatePassword()) {
+                // do nothing if validation fails
+            } else {
+                checkUser()
             }
         }
 
-        emailEt.addTextChangedListener(watcher)
-        passwordEt.addTextChangedListener(watcher)
-
-        // Login button action
-        loginBtn.setOnClickListener {
-            val intent9 = Intent(this, MainActivity::class.java)
-            startActivity(intent9)
-            Toast.makeText(this, "Login Successful!!", Toast.LENGTH_LONG).show()
+        signupRedirectText.setOnClickListener {
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
         }
+    }
 
-        // Register button action
-        registerBtn.setOnClickListener {
-            val intent10 = Intent(this, RegisterActivity::class.java)
-            startActivity(intent10)
+    private fun validateUsername(): Boolean {
+        val value = loginUsername.text.toString()
+        return if (value.isEmpty()) {
+            loginUsername.error = "Username cannot be empty"
+            false
+        } else {
+            loginUsername.error = null
+            true
         }
+    }
+
+    private fun validatePassword(): Boolean {
+        val value = loginPassword.text.toString()
+        return if (value.isEmpty()) {
+            loginPassword.error = "Password cannot be empty"
+            false
+        } else {
+            loginPassword.error = null
+            true
+        }
+    }
+
+    private fun checkUser() {
+        val userUsername = loginUsername.text.toString().trim()
+        val userPassword = loginPassword.text.toString().trim()
+
+        val reference: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
+        val checkUserDatabase: Query = reference.orderByChild("username").equalTo(userUsername)
+
+        checkUserDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    loginUsername.error = null
+                    val passwordFromDB = snapshot.child(userUsername).child("password").getValue(String::class.java)
+
+                    if (passwordFromDB == userPassword) {
+                        loginUsername.error = null
+
+                        val nameFromDB = snapshot.child(userUsername).child("name").getValue(String::class.java)
+                        val emailFromDB = snapshot.child(userUsername).child("email").getValue(String::class.java)
+                        val usernameFromDB = snapshot.child(userUsername).child("username").getValue(String::class.java)
+
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.putExtra("name", nameFromDB)
+                        intent.putExtra("email", emailFromDB)
+                        intent.putExtra("username", usernameFromDB)
+                        intent.putExtra("password", passwordFromDB)
+
+                        startActivity(intent)
+                    } else {
+                        loginPassword.error = "Invalid Credentials"
+                        loginPassword.requestFocus()
+                    }
+                } else {
+                    loginUsername.error = "User does not exist"
+                    loginUsername.requestFocus()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 }

@@ -2,74 +2,77 @@ package com.firstapp.esehat
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var phoneEt: EditText
-    private lateinit var continueBtn: Button
-    private lateinit var googleBtn: Button
+    private lateinit var signupName: EditText
+    private lateinit var signupUsername: EditText
+    private lateinit var signupEmail: EditText
+    private lateinit var signupPassword: EditText
+    private lateinit var loginRedirectText: TextView
+    private lateinit var signupButton: Button
+    private lateinit var database: FirebaseDatabase
+    private lateinit var reference: DatabaseReference
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_register)
 
-        // Safe findViewById — returns nullable, so we can check and avoid crashes
-        val phoneView = findViewById<EditText?>(R.id.phoneInput)
-        val continueView = findViewById<Button?>(R.id.switchButton)
-        val googleView = findViewById<Button?>(R.id.googleBtn)
+        auth = FirebaseAuth.getInstance()
+        val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("isLoggedIn", true)
+        editor.apply()
 
-        if (phoneView == null || continueView == null || googleView == null) {
-            Toast.makeText(
-                this,
-                "View IDs not found in activity_register.xml — check phoneEditText / switchButton / googleBtn",
-                Toast.LENGTH_LONG
-            ).show()
-            // stop further setup to avoid crashes
+        if (auth.currentUser != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
             return
         }
 
-        phoneEt = phoneView
-        continueBtn = continueView
-        googleBtn = googleView
+        setContentView(R.layout.activity_register)
 
-        // start disabled until valid input
-        continueBtn.isEnabled = false
+        signupName = findViewById(R.id.signup_name)
+        signupEmail = findViewById(R.id.signup_email)
+        signupUsername = findViewById(R.id.signup_username)
+        signupPassword = findViewById(R.id.signup_password)
+        loginRedirectText = findViewById(R.id.loginRedirectText)
+        signupButton = findViewById(R.id.signup_button)
 
-        phoneEt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { /* no-op */ }
+        signupButton.setOnClickListener {
+            val name = signupName.text.toString().trim()
+            val email = signupEmail.text.toString().trim()
+            val username = signupUsername.text.toString().trim()
+            val password = signupPassword.text.toString().trim()
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { /* no-op */ }
-
-            override fun afterTextChanged(s: Editable?) {
-                // keep only digits (user might type + or spaces)
-                val digits = s?.toString()?.filter { it.isDigit() } ?: ""
-                val isValid = digits.length == 10 // change rule if you need different validation
-                continueBtn.isEnabled = isValid
-
-                // show small inline error when user typed something invalid
-                phoneEt.error = when {
-                    digits.isEmpty() -> null
-                    !isValid -> "Enter a 10-digit phone number"
-                    else -> null
-                }
+            if (name.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-        })
 
-        continueBtn.setOnClickListener {
-            // go to OTP screen
-            startActivity(Intent(this, OTPActivity::class.java))
+            database = FirebaseDatabase.getInstance()
+            reference = database.getReference("users")
+
+            val helperClass = HelperClass(name, email, username, password)
+            reference.child(username).setValue(helperClass)
+
+            Toast.makeText(this, "Signup successful! Please login.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
-        googleBtn.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+        loginRedirectText.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

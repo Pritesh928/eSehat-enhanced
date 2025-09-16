@@ -1,532 +1,303 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="15dp"
-    android:background="#F8F9FA">
+    android:background="#FFFFFF">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="vertical">
 
-        <!-- Header Section -->
-        <LinearLayout
+        <!-- Top Header Section with Pills Background -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="24dp">
+            android:layout_height="300dp"
+            android:background="@drawable/gradient_background"
+            android:padding="20dp">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_profile"
-                />
+            <!-- Status Bar -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/status_bar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_alignParentTop="true">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Pills Icon (Left) -->
+            <ImageView
+                android:id="@+id/pill_icon_left"
+                android:layout_width="60dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:rotation="-15"
+                android:background="@drawable/pill_shape"
+                android:backgroundTint="#40E0FF" />
+
+            <!-- Main Content -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="  Hello"
-                    android:textSize="19sp"
-                    android:textColor="#666666" />
+                    android:text="Medicals Nearby"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="  Pritesh Singh"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
+                    android:text="Your PIN code - 421503"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="50dp"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
+            <!-- Pills Icon (Right) -->
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_bell"
-                android:layout_marginEnd="8dp" />
+                android:id="@+id/pill_icon_right"
+                android:layout_width="45dp"
+                android:layout_height="90dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:rotation="25"
+                android:background="@drawable/pill_shape"
+                android:backgroundTint="#20A0E0" />
 
-        </LinearLayout>
+            <!-- Small Pills Scattered -->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginBottom="40dp"
+                android:rotation="45"
+                android:background="@drawable/pill_shape"
+                android:backgroundTint="#60C0FF" />
 
-        <!-- Workout Progress Card -->
-        <androidx.cardview.widget.CardView
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="80dp"
+                android:rotation="-30"
+                android:background="@drawable/pill_shape"
+                android:backgroundTint="#80D0FF" />
+
+            <!-- Change Location Button -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change your location"
+                    android:backgroundTint="@color/black"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- Nearby Medicals Section -->
+
+        <!-- Bottom Navigation Placeholder -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            android:backgroundTint="#2D2D2D">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Nearby Medicals"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Ayush Medical Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="20dp"
-                android:gravity="center_vertical">
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/edittext"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Workout Progress"
-                        android:textSize="16sp"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="4dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="14 Exercise Left"
-                        android:textSize="14sp"
-                        android:textColor="#CCCCCC" />
-
-                </LinearLayout>
-
-                <!-- Progress Circle -->
                 <RelativeLayout
-                    android:layout_width="60dp"
-                    android:layout_height="60dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F5F5F5"
+                    android:padding="20dp">
 
-                    <ProgressBar
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:progressDrawable="@drawable/circle_completed"
-                        android:progress="60"
-                        android:max="100" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="60%"
-                        android:textSize="14sp"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_centerInParent="true" />
+                        android:layout_toStartOf="@+id/arrow_button_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Baymax Medical"
+                            android:textColor="#000000"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:lineSpacingExtra="2dp"
+                            android:text="Location : Shop no. 44, Near Maruti Temple, Gandhi Chowk, Badlapur E, Mumbai, Maharashtra 421503"
+                            android:textColor="#666666"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:layout_width="260dp"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="15dp"
+                            android:backgroundTint="@color/black"
+                            android:text="Check Available Medicines"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/arrow_button_1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/back"
+                        android:padding="12dp"
+                        android:rotation="180"
+                        />
 
                 </RelativeLayout>
 
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Health Overview Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Health Overview"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="See Details"
-                android:textSize="14sp"
-                android:textColor="#666666" />
-
-        </LinearLayout>
-
-        <!-- Health Stats Cards -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="32dp">
-
-            <!-- Calories Card -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                android:backgroundTint="#FFFFFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    android:gravity="center_vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Calories\nBurnt"
-                            android:textSize="14sp"
-                            android:textColor="#666666" />
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_fire"
-                            />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.4k"
-                        android:textSize="24sp"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="kCal"
-                        android:textSize="12sp"
-                        android:textColor="#666666" />
-
-                </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Distance Card -->
+            <!-- Soham Medical Card -->
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/edittext"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                android:backgroundTint="#FFFFFF">
+                app:cardElevation="2dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    android:gravity="center_vertical">
+                    android:layout_height="wrap_content"
+                    android:background="#F5F5F5"
+                    android:padding="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="8dp">
+                        android:layout_toStartOf="@+id/arrow_button_2"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Distance\nCovered"
-                            android:textSize="14sp"
-                            android:textColor="#666666" />
+                            android:text="Soham Bhai Medical Store"
+                            android:textColor="#000000"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/loc"
-                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:lineSpacingExtra="2dp"
+                            android:text="Location : Shop No. 12, Opp. Dr. Gandhi Clinic, Dattawaadi, Badlapur E, Mumbai, Maharashtra 421503"
+                            android:textColor="#666666"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:layout_width="260dp"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="15dp"
+                            android:backgroundTint="@color/black"
+                            android:text="Check Available Medicines"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3.8"
-                        android:textSize="24sp"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
+                    <ImageButton
+                        android:id="@+id/arrow_button_2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/back"
+                        android:padding="12dp"
+                        android:rotation="180"
+                        />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="km"
-                        android:textSize="12sp"
-                        android:textColor="#666666" />
-
-                </LinearLayout>
+                </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-        <!-- Popular Exercise Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Popular Exercise"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="See Details"
-                android:textSize="14sp"
-                android:textColor="#666666" />
-
-        </LinearLayout>
-
-        <!-- Exercise Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
-            android:backgroundTint="#5E3466">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Squat Low,"
-                        android:textSize="20sp"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="4dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Build Strength"
-                        android:textSize="20sp"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="24 Exercise"
-                        android:textSize="14sp"
-                        android:textColor="#E0E0E0"
-                        android:layout_marginBottom="16dp" />
-
-                    <Button
-                        android:layout_width="100dp"
-                        android:layout_height="36dp"
-                        android:text="Start Now"
-                        android:textSize="12sp"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="#4CAF50"
-                        android:textAllCaps="false" />
-
-                </LinearLayout>
-
-                <!-- Exercise Image -->
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/doctor_lisa"
-                    />
-
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Light Workout Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Light Workout"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="See Details"
-                android:textSize="14sp"
-                android:textColor="#666666" />
-
-        </LinearLayout>
-
-        <!-- Light Workout Card Preview -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
-            android:backgroundTint="#E8F5E8">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:background="@drawable/edittext"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/ic_lungs"
-                    android:src="@drawable/star"
-                    android:padding="12dp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Breathing Exercise"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Light Workout Card Preview -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:cardCornerRadius="12dp"
-            android:layout_marginTop="10dp"
-            app:cardElevation="2dp"
-            android:backgroundTint="#E8F5E8">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:background="@drawable/edittext"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/ic_brain"
-                    android:src="@drawable/star"
-                    android:padding="12dp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Neural Exercise"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-        <!-- Light Workout Card Preview -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="#E8F5E8">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:background="@drawable/edittext"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/ic_heart"
-                    android:src="@drawable/star"
-                    android:padding="12dp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cardio Exercise"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
         <View
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="80dp"
+            android:background="#FFFFFF" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="80dp" />
     </LinearLayout>
-
-
     </ScrollView>
+
     <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottom_navigation"
@@ -640,3 +411,4 @@
 
     </LinearLayout>
 </RelativeLayout>
+
