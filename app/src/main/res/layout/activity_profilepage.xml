@@ -316,23 +316,25 @@
         app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- Bottom Navigation -->
+    <!--Bottom Navigation-->
     <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="132dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
+        android:clipToPadding="false"
         android:elevation="8dp"
+        android:fitsSystemWindows="true"
         android:orientation="horizontal"
-        android:paddingBottom="30dp">
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <!-- Home -->
         <LinearLayout
             android:id="@+id/nav_home"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -344,15 +346,14 @@
                 android:id="@+id/homebtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/ic_home"/>
-
+                android:background="@drawable/ic_home" />
         </LinearLayout>
 
         <!-- Pills -->
         <LinearLayout
             android:id="@+id/nav_medications"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -364,15 +365,14 @@
                 android:id="@+id/healthtrackbtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/ic_more"/>
-
+                android:background="@drawable/ic_more" />
         </LinearLayout>
 
         <!-- Calendar -->
         <LinearLayout
             android:id="@+id/nav_calendar"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -384,15 +384,14 @@
                 android:id="@+id/videoconsult"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
-                android:background="@drawable/ic_medication"/>
-
+                android:background="@drawable/ic_medication" />
         </LinearLayout>
 
         <!-- Analytics -->
         <LinearLayout
             android:id="@+id/nav_analytics"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -404,15 +403,14 @@
                 android:id="@+id/baymaxAI"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/ic_ai_logo"/>
-
+                android:background="@drawable/ic_ai_logo" />
         </LinearLayout>
 
         <!-- Profile -->
         <LinearLayout
             android:id="@+id/nav_profile"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -424,10 +422,9 @@
                 android:id="@+id/profileBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/ic_profile"/>
-
+                android:background="@drawable/ic_profile" />
         </LinearLayout>
-
     </LinearLayout>
+
 </RelativeLayout>
 
