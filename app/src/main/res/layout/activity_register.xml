@@ -52,7 +52,7 @@
                 android:background="@drawable/edittext"
                 android:layout_marginTop="20dp"
                 android:padding="8dp"
-                android:hint="Phone Number"
+                android:hint="Email"
                 android:drawablePadding="8dp"
                 android:textColor="@color/black"/>
 
