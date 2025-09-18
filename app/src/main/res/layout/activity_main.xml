@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D8FFFFFF">
+    android:background="#FFFFFF">
 
     <!-- Main ScrollView -->
     <ScrollView
@@ -23,8 +23,8 @@
             <RelativeLayout
                 android:id="@+id/status_bar"
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@drawable/card"
+                android:layout_height="15dp"
+                android:background="#0C1320"
                 android:paddingStart="20dp"
                 android:paddingTop="12dp"
                 android:paddingEnd="20dp">
@@ -35,18 +35,6 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <!-- Signal Bars -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:orientation="horizontal">
-
-
-                    </LinearLayout>
-
-                    <!-- WiFi Icon -->
-
                 </LinearLayout>
 
             </RelativeLayout>
@@ -56,24 +44,11 @@
                 android:id="@+id/header_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card"
+                android:background="@drawable/curve"
                 android:paddingStart="24dp"
                 android:paddingTop="20dp"
                 android:paddingEnd="24dp"
                 android:paddingBottom="32dp">
-
-                <Button
-                    android:id="@+id/logoutBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="265dp"
-                    android:layout_marginLeft="150dp"
-                    android:backgroundTint="@android:color/holo_red_dark"
-                    android:text="Logout"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:layout_gravity="center"/>
 
                 <!-- My Medications Title -->
                 <TextView
@@ -92,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_my_medications"
                     android:layout_marginTop="32dp"
-                    android:text="Hello, Pritesh!"
+                    android:text="Hello, Pritesh!!"
                     android:textColor="@android:color/white"
                     android:textSize="34sp"
                     android:textStyle="bold" />
@@ -114,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_medications_left"
-                    android:layout_marginTop="36dp">
+                    >
 
                     <!-- Progress Text -->
                     <LinearLayout
@@ -123,15 +98,44 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_progress_count"
+                        <LinearLayout
+                            android:id="@+id/btn_add_medication"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3/8"
-                            android:textColor="@android:color/white"
-                            android:textSize="32sp"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="30dp"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="8dp">
+                            <TextView
+                                android:id="@+id/tv_progress_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2/8"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@android:color/white"
+                                android:textSize="32sp"
+                                android:textStyle="bold" />
+
+                            <ImageButton
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="30dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/ic_add_circle"
+                                android:gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Add"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@android:color/white"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -158,27 +162,31 @@
                             android:orientation="horizontal">
 
                             <View
+                                android:id="@+id/circle1"
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:layout_marginEnd="8dp"
-                                android:background="@drawable/circle_completed" />
-
-                            <View
-                                android:layout_width="14dp"
-                                android:layout_height="14dp"
-                                android:layout_marginEnd="8dp"
-                                android:background="@drawable/circle_completed" />
-
-                            <View
-                                android:layout_width="14dp"
-                                android:layout_height="14dp"
-                                android:layout_marginEnd="8dp"
-                                android:background="@drawable/circle_completed" />
-
-                            <View
-                                android:layout_width="14dp"
-                                android:layout_height="14dp"
                                 android:background="@drawable/circle_incomplete" />
+
+                            <View
+                                android:id="@+id/circle2"
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_incomplete" />
+
+                            <View
+                                android:id="@+id/circle3"
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/circle_completed" />
+
+                            <View
+                                android:id="@+id/circle4"
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:background="@drawable/circle_completed" />
 
                         </LinearLayout>
 
@@ -189,63 +197,38 @@
                             android:orientation="horizontal">
 
                             <View
+                                android:id="@+id/circle5"
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:layout_marginEnd="8dp"
-                                android:background="@drawable/circle_incomplete" />
+                                android:background="@drawable/circle_completed" />
 
                             <View
+                                android:id="@+id/circle6"
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:layout_marginEnd="8dp"
-                                android:background="@drawable/circle_incomplete" />
+                                android:background="@drawable/circle_completed" />
 
                             <View
+                                android:id="@+id/circle7"
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:layout_marginEnd="8dp"
-                                android:background="@drawable/circle_incomplete" />
+                                android:background="@drawable/circle_completed" />
 
                             <View
+                                android:id="@+id/circle8"
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
-                                android:background="@drawable/circle_incomplete" />
+                                android:background="@drawable/circle_completed"  />
 
                         </LinearLayout>
 
                     </LinearLayout>
-
                 </RelativeLayout>
 
-                <!-- Add Button -->
-                <LinearLayout
-                    android:id="@+id/btn_add_medication"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/progress_section"
-                    android:layout_marginTop="36dp"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
 
-                    <ImageButton
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/ic_add_circle"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Add"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
 
             </RelativeLayout>
 
@@ -254,14 +237,76 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="24dp"
-                android:paddingRight="24dp">
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="-260dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="270dp"
+                        android:layout_marginLeft="50dp"
+                        >
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/videoconsult_up"
+                                android:layout_width="140dp"
+                                android:layout_height="75dp"
+                                android:text="       Consult"
+                                android:fontFamily="sans-serif-black"
+                                android:textColor="@color/black"
+                                android:backgroundTint="#E4E6E6"
+                                />
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginStart="-115dp"
+                                android:layout_marginTop="23dp"
+                                android:src="@drawable/consult"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="30dp">
+
+                            <Button
+                                android:id="@+id/baymaxAI_up"
+                                android:layout_width="140dp"
+                                android:layout_height="75dp"
+                                android:text="      AskAI"
+                                android:fontFamily="sans-serif-black"
+                                android:textColor="@color/black"
+                                android:backgroundTint="#E4E6E6"
+                                />
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginStart="-115dp"
+                                android:layout_marginTop="23dp"
+                                android:src="@drawable/ic_ai_logo"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
                 <!-- Section Title -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="10dp"
                     android:text="Your Medication Schedule"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
@@ -273,6 +318,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/edittext"
                     android:padding="20dp">
 
@@ -324,8 +370,8 @@
                             android:layout_width="110dp"
                             android:layout_height="44dp"
                             android:layout_marginBottom="8dp"
-                            android:backgroundTint="@color/black"
                             android:text="Skipped"
+                            android:backgroundTint="#0C1320"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white"
                             android:textSize="16sp" />
@@ -334,7 +380,7 @@
                             android:id="@+id/btn_paracetamol_taken"
                             android:layout_width="110dp"
                             android:layout_height="44dp"
-                            android:backgroundTint="#6A9239"
+                            android:backgroundTint="#48B88C"
                             android:text="Taken"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white"
@@ -400,7 +446,7 @@
                             android:layout_width="110dp"
                             android:layout_height="44dp"
                             android:layout_marginBottom="8dp"
-                            android:backgroundTint="@color/black"
+                            android:backgroundTint="#0C1320"
                             android:text="Skipped"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white"
@@ -410,7 +456,7 @@
                             android:id="@+id/btn_metformin_taken"
                             android:layout_width="110dp"
                             android:layout_height="44dp"
-                            android:backgroundTint="#6A9239"
+                            android:backgroundTint="#48B88C"
                             android:text="Taken"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white"

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 
 class LoginActivity : AppCompatActivity() {
-
+    
     private lateinit var loginUsername: EditText
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button

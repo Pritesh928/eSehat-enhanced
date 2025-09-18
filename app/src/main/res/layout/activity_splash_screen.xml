@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="eSehat"
+        android:textColor="@color/black"
         android:textSize="35dp"
         app:layout_constraintBottom_toTopOf="@+id/progbar"
         app:layout_constraintEnd_toEndOf="parent"

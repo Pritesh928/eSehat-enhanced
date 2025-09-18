@@ -11,309 +11,237 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/profileImg"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/baymax"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleName"
-        android:layout_marginTop="10dp"
-        android:text="Pritesh Singh"
-        android:textColor="#050404"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/profileImg"
-        app:layout_constraintStart_toStartOf="@id/profileImg"
-        app:layout_constraintTop_toBottomOf="@id/profileImg"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleUsername"
-        android:text="Pritesh928"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/titleName"
-        app:layout_constraintStart_toStartOf="@id/titleName"
-        app:layout_constraintTop_toBottomOf="@id/titleName"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="@drawable/edittext"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleUsername">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="16dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:elevation="5dp"
-                android:padding="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:gravity="center_horizontal">
 
+                <!-- Profile Avatar -->
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/ic_profile"
+                    android:scaleType="centerCrop"
+                    />
+
+                <!-- Username -->
                 <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/postsNumber"
-                    android:text="67.5 "
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    android:textStyle="bold"/>
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Pritesh Singh"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
 
+                <!-- Email -->
+                <TextView
+                    android:id="@+id/userEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pptsingh123@gmail.com"
+                    android:textSize="14sp"
+                    android:textColor="#A5A5A5" />
+
+                <!-- Edit Profile Button -->
+                <Button
+                    android:id="@+id/btnEditProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Edit profile"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/black"
+                    android:paddingHorizontal="20dp" />
+
+                <!-- Inventories Section -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/posts"
-                    android:text="Weight"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:layout_marginTop="24dp"
+                    android:text="Inventories"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#A5A5A5" />
 
-            </LinearLayout>
+                <!-- My Stores Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edittext"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:elevation="5dp"
-                android:padding="8dp"
-                android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/medicine_store" />
 
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/followersNo"
-                    android:text="8034"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:text="My Medicines"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
 
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/circle_completed"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <!-- Support Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edittext"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_support" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Support"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+                <!-- Support Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edittext"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/health_check" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Digital Health Records"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+                <!-- Preferences Section -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/followers"
-                    android:text="Steps"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:layout_marginTop="24dp"
+                    android:text="Preferences"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#A5A5A5" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:elevation="5dp"
-                android:padding="8dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/followingNo"
-                    android:text="1233"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    android:textStyle="bold"/>
-
-                <TextView
+                <!-- Push Notifications -->
+                <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edittext"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/notification" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:text="Push notifications"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+
+                </LinearLayout>
+
+
+
+                <!-- PIN Code -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edittext"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_pin" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="PIN Code"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+                <!-- Logout -->
+                <Button
+                    android:id="@+id/logoutBtn"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/following"
-                    android:text="Calories Burnt"
-                    android:textAlignment="center"
+                    android:layout_marginTop="24dp"
+                    android:text="Logout"
                     android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:textSize="15sp"
+                    android:backgroundTint="#FF0000"
+                    android:drawablePadding="8dp" />
 
             </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/name"
-                android:layout_weight="1"
-                android:text="Name"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/profileName"
-                android:text="name"
-                android:layout_weight="1"
-                android:textAlignment="viewEnd"
-                android:textColor="#6D000000"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
-            android:alpha="0.5"
-            android:background="#69000000"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:padding="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/email"
-                android:layout_weight="1"
-                android:text="Email"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/profileEmail"
-                android:text="email"
-                android:layout_weight="1"
-                android:textAlignment="viewEnd"
-                android:textColor="#6D000000"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
-            android:alpha="0.5"
-            android:background="@color/black"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:padding="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/username"
-                android:layout_weight="1"
-                android:text="Username"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/profileUsername"
-                android:text="username"
-                android:layout_weight="1"
-                android:textAlignment="viewEnd"
-                android:textColor="#6D000000"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
-            android:alpha="0.5"
-            android:background="@color/black"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:padding="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/password"
-                android:layout_weight="1"
-                android:text="Password"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/profilePassword"
-                android:text="password"
-                android:layout_weight="1"
-                android:textAlignment="viewEnd"
-                android:textColor="#6D000000"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:id="@+id/editButton"
-        android:gravity="center"
-        android:text="Edit Profile"
-        android:textSize="18sp"
-        app:cornerRadius = "20dp"
-        android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/linearLayout"
-        app:layout_constraintStart_toStartOf="@id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--Bottom Navigation-->
