@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
@@ -27,6 +28,12 @@ class OTPActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otpactivity)
+        
+        val BackButton : Button = findViewById<Button>(R.id.saveButton)
+        BackButton.setOnClickListener {
+            val intent66 = Intent(this, VideoConsult::class.java)
+            startActivity(intent66)
+        }
 
         reference = FirebaseDatabase.getInstance().getReference("users")
 
@@ -66,7 +73,6 @@ class OTPActivity: AppCompatActivity() {
             false
         }
     }
-
     private fun isPasswordChanged(): Boolean {
         return if (passwordUser != editPassword.text.toString()) {
             reference.child(usernameUser).child("password").setValue(editPassword.text.toString())

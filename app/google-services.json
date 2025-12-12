@@ -1,13 +1,32 @@
 {
   "project_info": {
-    "project_number": "415123239",
-    "project_id": "esehat-23a17",
-    "storage_bucket": "esehat-23a17.firebasestorage.app"
+    "project_number": "807002849757",
+    "project_id": "esehat-fc4ce",
+    "storage_bucket": "esehat-fc4ce.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:415123239:android:37f3bab9bb971108a34b02",
+        "mobilesdk_app_id": "1:807002849757:android:d4c072bfbd16e0f3377634",
+        "android_client_info": {
+          "package_name": "com.firstapp.eSehat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlFSXJrUNCrGpL6yotutR92yANreqP49c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807002849757:android:971333eac9747c63377634",
         "android_client_info": {
           "package_name": "com.firstapp.esehat"
         }
@@ -15,7 +34,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCQf-j_COL3a6vQ5BhUCCQg4tcC4FtQEWs"
+          "current_key": "AIzaSyAlFSXJrUNCrGpL6yotutR92yANreqP49c"
         }
       ],
       "services": {

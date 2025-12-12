@@ -186,7 +186,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ayush Medical"
+                            android:text="Palak Medical"
                             android:textColor="#000000"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -250,7 +250,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Soham Bhai Medical Store"
+                            android:text="Aadi Medical Store"
                             android:textColor="#000000"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -305,7 +305,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
+        android:background="@drawable/edittext"
         android:clipToPadding="false"
         android:elevation="8dp"
         android:fitsSystemWindows="true"

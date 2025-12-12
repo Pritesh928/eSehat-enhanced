@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main1"
     android:background="#FFFFFF">
 
     <!-- Main ScrollView -->
@@ -238,71 +239,61 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginTop="-260dp"
-                >
+                android:paddingRight="10dp"
+                android:layout_marginTop="-260dp">
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    >
+                    android:layout_marginTop="270dp"
+                    android:layout_marginLeft="27dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/videoconsult_up"
+                            android:layout_width="140dp"
+                            android:layout_height="75dp"
+                            android:text="       Consult"
+                            android:fontFamily="sans-serif-black"
+                            android:textColor="@color/black"
+                            android:backgroundTint="#E4E6E6"
+                            />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="-115dp"
+                            android:layout_marginTop="23dp"
+                            android:src="@drawable/consult"
+                            />
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginTop="270dp"
-                        android:layout_marginLeft="50dp"
-                        >
+                        android:layout_marginLeft="30dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <Button
-                                android:id="@+id/videoconsult_up"
-                                android:layout_width="140dp"
-                                android:layout_height="75dp"
-                                android:text="       Consult"
-                                android:fontFamily="sans-serif-black"
-                                android:textColor="@color/black"
-                                android:backgroundTint="#E4E6E6"
-                                />
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_marginStart="-115dp"
-                                android:layout_marginTop="23dp"
-                                android:src="@drawable/consult"
-                                />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginLeft="30dp">
-
-                            <Button
-                                android:id="@+id/baymaxAI_up"
-                                android:layout_width="140dp"
-                                android:layout_height="75dp"
-                                android:text="      AskAI"
-                                android:fontFamily="sans-serif-black"
-                                android:textColor="@color/black"
-                                android:backgroundTint="#E4E6E6"
-                                />
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_marginStart="-115dp"
-                                android:layout_marginTop="23dp"
-                                android:src="@drawable/ic_ai_logo"
-                                />
-                        </LinearLayout>
+                        <Button
+                            android:id="@+id/baymaxAI_up"
+                            android:layout_width="140dp"
+                            android:layout_height="75dp"
+                            android:text="      AskAI"
+                            android:fontFamily="sans-serif-black"
+                            android:textColor="@color/black"
+                            android:backgroundTint="#E4E6E6"
+                            />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="-115dp"
+                            android:layout_marginTop="23dp"
+                            android:src="@drawable/ic_ai_logo"
+                            />
                     </LinearLayout>
-
                 </LinearLayout>
-                <!-- Section Title -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -482,7 +473,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
+        android:background="@drawable/edittext"
         android:clipToPadding="false"
         android:elevation="8dp"
         android:fitsSystemWindows="true"
@@ -586,4 +577,6 @@
         </LinearLayout>
     </LinearLayout>
 
+
 </RelativeLayout>
+

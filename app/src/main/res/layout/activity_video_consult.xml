@@ -98,11 +98,11 @@
                     android:backgroundTint="#A8E6CF"
                     android:layout_marginBottom="8dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/allopathy"
+                        android:background="@drawable/allopathy"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -134,13 +134,12 @@
                     android:backgroundTint="#FFD3B6"
                     android:layout_marginBottom="8dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_homeopathy"
+                        android:background="@drawable/ic_homeopathy"
                         />
-
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -170,13 +169,12 @@
                     android:backgroundTint="#DCC6E0"
                     android:layout_marginBottom="8dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_ayurvedic"
+                        android:background="@drawable/ic_ayurvedic"
                         />
-
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -207,7 +205,7 @@
             android:layout_height="220dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="6dp"
-            android:backgroundTint="#FFE0B2"
+            android:backgroundTint="#DCA1A1"
             android:layout_marginBottom="16dp">
 
             <RelativeLayout
@@ -319,7 +317,7 @@
             android:layout_height="220dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="6dp"
-            android:backgroundTint="#FFE0B2"
+            android:backgroundTint="#E7F1FB"
             android:layout_marginBottom="16dp">
 
             <RelativeLayout
@@ -431,7 +429,7 @@
             android:layout_height="220dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="6dp"
-            android:backgroundTint="#FFE0B2"
+            android:backgroundTint="#D9D7C2"
             android:layout_marginBottom="16dp">
 
             <RelativeLayout
@@ -555,7 +553,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
+        android:background="@drawable/edittext"
         android:clipToPadding="false"
         android:elevation="8dp"
         android:fitsSystemWindows="true"
