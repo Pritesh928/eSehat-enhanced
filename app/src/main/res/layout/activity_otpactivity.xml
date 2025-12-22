@@ -25,6 +25,14 @@
             android:padding="24dp"
             android:background="@drawable/edittext">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/baymax"
+                android:layout_marginStart="100dp"
+
+                />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
