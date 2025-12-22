@@ -73,7 +73,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your PIN code - 421503"
+                    android:text="Your PIN code - 400612"
                     android:textColor="#FFF8F8"
                     android:layout_marginBottom="50dp"
                     android:textSize="18sp" />
@@ -135,6 +135,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/profilepageRedirect"
                     android:text="Change your location"
                     android:backgroundTint="@color/black"
                     android:textColor="@color/white"
@@ -180,13 +181,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toStartOf="@+id/arrow_button_1"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Palak Medical"
+                            android:text="Baymax Medical"
                             android:textColor="#000000"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -201,26 +201,15 @@
                             android:textSize="14sp" />
 
                         <Button
-                            android:layout_width="260dp"
+                            android:layout_width="200dp"
                             android:layout_height="45dp"
                             android:layout_marginTop="15dp"
                             android:backgroundTint="@color/black"
-                            android:text="Check Available Medicines"
+                            android:text="Check Now"
                             android:textColor="#FFFFFF"
                             android:textSize="14sp" />
 
                     </LinearLayout>
-
-                    <ImageButton
-                        android:id="@+id/arrow_button_1"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/back"
-                        android:padding="12dp"
-                        android:rotation="180"
-                        />
 
                 </RelativeLayout>
 
@@ -244,13 +233,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toStartOf="@+id/arrow_button_2"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aadi Medical Store"
+                            android:text="Interstellar Medical Store"
                             android:textColor="#000000"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -265,26 +253,15 @@
                             android:textSize="14sp" />
 
                         <Button
-                            android:layout_width="260dp"
+                            android:layout_width="200dp"
                             android:layout_height="45dp"
                             android:layout_marginTop="15dp"
                             android:backgroundTint="@color/black"
-                            android:text="Check Available Medicines"
+                            android:text="Check Now"
                             android:textColor="#FFFFFF"
                             android:textSize="14sp" />
 
                     </LinearLayout>
-
-                    <ImageButton
-                        android:id="@+id/arrow_button_2"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/back"
-                        android:padding="12dp"
-                        android:rotation="180"
-                        />
 
                 </RelativeLayout>
 
@@ -298,116 +275,82 @@
             android:background="#FFFFFF" />
 
     </LinearLayout>
-    </ScrollView>
-    <!--Bottom Navigation-->
-    <LinearLayout
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+    </ScrollView><!-- BottomNavigation -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/edittext"
-        android:clipToPadding="false"
-        android:elevation="8dp"
-        android:fitsSystemWindows="true"
-        android:orientation="horizontal"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
-
-        <!-- Home -->
+        android:padding="10dp">
         <LinearLayout
-            android:id="@+id/nav_home"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:background="@drawable/edittext">
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="42dp"
+                android:layout_height="5dp"
+                />
 
+            <!-- Home -->
             <ImageButton
                 android:id="@+id/homebtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_home" />
-        </LinearLayout>
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Pills -->
-        <LinearLayout
-            android:id="@+id/nav_medications"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
+            <!-- Medication -->
             <ImageButton
                 android:id="@+id/healthtrackbtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_more" />
-        </LinearLayout>
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Calendar -->
-        <LinearLayout
-            android:id="@+id/nav_calendar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
+            <!-- consult -->
             <ImageButton
                 android:id="@+id/videoconsult"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_medication" />
-        </LinearLayout>
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Analytics -->
-        <LinearLayout
-            android:id="@+id/nav_analytics"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
+            <!-- baymax-->
             <ImageButton
                 android:id="@+id/baymaxAI"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_ai_logo" />
-        </LinearLayout>
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Profile -->
-        <LinearLayout
-            android:id="@+id/nav_profile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            <!-- profile page-->
 
             <ImageButton
                 android:id="@+id/profileBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_profile" />
-        </LinearLayout>
-    </LinearLayout>
 
+        </LinearLayout>
+
+
+    </RelativeLayout>
 </RelativeLayout>
 

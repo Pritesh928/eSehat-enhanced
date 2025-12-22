@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/bg"
+    android:background="@color/white"
     tools:context=".LoginActivity">
 
     <androidx.cardview.widget.CardView
@@ -42,6 +42,7 @@
                 android:background="@drawable/edittext"
                 android:drawablePadding="8dp"
                 android:hint="Username"
+                android:inputType="text"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
@@ -63,6 +64,7 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/black"
                 android:text="Login"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
 

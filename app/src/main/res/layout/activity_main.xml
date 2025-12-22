@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main1"
-
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
     <!-- Main ScrollView -->
     <ScrollView
@@ -21,26 +20,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Status Bar -->
-            <RelativeLayout
-                android:id="@+id/status_bar"
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:background="#0C1320"
-                android:paddingStart="20dp"
-                android:paddingTop="12dp"
-                android:paddingEnd="20dp">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
             <!-- Header Section -->
             <RelativeLayout
                 android:id="@+id/header_section"
@@ -48,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/curve"
                 android:paddingStart="24dp"
-                android:paddingTop="20dp"
+                android:paddingTop="50dp"
                 android:paddingEnd="24dp"
                 android:paddingBottom="32dp">
 
@@ -239,20 +218,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="-260dp">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="270dp"
-                    android:layout_marginLeft="27dp">
+                    android:layout_marginTop="270dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        >
 
                         <Button
                             android:id="@+id/videoconsult_up"
@@ -468,116 +447,82 @@
         </LinearLayout>
 
     </ScrollView>
-    <!--Bottom Navigation-->
-    <LinearLayout
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+    <!-- BottomNavigation -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/edittext"
-        android:clipToPadding="false"
-        android:elevation="8dp"
-        android:fitsSystemWindows="true"
-        android:orientation="horizontal"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
-
-        <!-- Home -->
+        android:padding="10dp">
         <LinearLayout
-            android:id="@+id/nav_home"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:background="@drawable/edittext">
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="42dp"
+                android:layout_height="5dp"
+                />
 
-            <ImageButton
-                android:id="@+id/homebtn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ic_home" />
-        </LinearLayout>
+            <!-- Home -->
+                <ImageButton
+                    android:id="@+id/homebtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_home" />
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Pills -->
-        <LinearLayout
-            android:id="@+id/nav_medications"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
+            <!-- Medication -->
             <ImageButton
                 android:id="@+id/healthtrackbtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_more" />
-        </LinearLayout>
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Calendar -->
-        <LinearLayout
-            android:id="@+id/nav_calendar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
+            <!-- consult -->
             <ImageButton
                 android:id="@+id/videoconsult"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_medication" />
-        </LinearLayout>
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Analytics -->
-        <LinearLayout
-            android:id="@+id/nav_analytics"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
+            <!-- baymax-->
             <ImageButton
                 android:id="@+id/baymaxAI"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_ai_logo" />
-        </LinearLayout>
+            <!-- Extra space for scrolling -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                />
 
-        <!-- Profile -->
-        <LinearLayout
-            android:id="@+id/nav_profile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            <!-- profile page-->
 
             <ImageButton
                 android:id="@+id/profileBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_profile" />
+
         </LinearLayout>
-    </LinearLayout>
 
 
+    </RelativeLayout>
 </RelativeLayout>
 

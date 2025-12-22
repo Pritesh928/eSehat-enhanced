@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/bg"
+    android:background="@color/white"
     tools:context=".RegisterActivity">
 
     <androidx.cardview.widget.CardView
@@ -37,60 +37,38 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/signup_number"
+                android:id="@+id/signup_username"
                 android:background="@drawable/edittext"
                 android:padding="8dp"
                 android:layout_marginTop="10dp"
-                android:inputType="number"
+                android:inputType="text"
                 android:hint="Username"
                 android:drawablePadding="8dp"
                 android:textColor="@color/black"/>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/signup_number"
+                android:id="@+id/signup_email"
                 android:background="@drawable/edittext"
                 android:padding="8dp"
                 android:layout_marginTop="10dp"
-                android:inputType="number"
+                android:inputType="text"
+                android:hint="Email"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/signup_pass"
+                android:background="@drawable/edittext"
+                android:padding="8dp"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword"
                 android:hint="Password"
                 android:drawablePadding="8dp"
                 android:textColor="@color/black"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/signup_number"
-                android:background="@drawable/edittext"
-                android:padding="8dp"
-                android:layout_marginTop="10dp"
-                android:inputType="number"
-                android:hint="Enter Number"
-                android:drawablePadding="8dp"
-                android:textColor="@color/black"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/signup_password"
-                android:background="@drawable/edittext"
-                android:padding="8dp"
-                android:hint="Enter OTP"
-                android:layout_marginTop="10dp"
-                android:inputType="number"
-                android:drawablePadding="8dp"
-                android:textColor="@color/black"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Get OTP"
-                android:id="@+id/signup_getotp"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="@color/black"
-                app:cornerRadius = "20dp"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
